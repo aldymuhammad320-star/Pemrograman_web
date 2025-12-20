@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button id="btn1" onclick="fungsi1()">Tombol1</button>
+  <button id="btn2" onclick="fungsi2()">Tombol2</button>
+  <button onclick="fungsi3()">Reset</button>
+  
+  <p id="paragraf"></p>
+
+  <script>
+    let paragraf = document.getElementById("paragraf");
+
+    function fungsi1() {
+      paragraf.textContent = "Budi";
+    }
+
+    function fungsi2() {
+      paragraf.textContent = "Andi";
+    }
+
+    function fungsi3() {
+      paragraf.textContent = "";
+    }
+  </script>
+
+</body>
+</html>

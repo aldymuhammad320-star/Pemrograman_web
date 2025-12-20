@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover HP dengan Kursor Palsu</title>
+
+<style>
+    .kursor {
+        width: 14px;
+        height: 14px;
+        border-top: 12px solid transparent;
+        border-bottom: 12px solid transparent;
+        border-left: 18px solid red; /* panah */
+        position: fixed;
+        pointer-events: none;
+        transform: translate(-50px, -50px);
+        z-index: 999;
+    }
+
+    button {
+        margin: 20px;
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+
+<div class="kursor" id="kursor"></div>
+
+<button id="p1">Paragraf 1</button>
+<button id="p2">Paragraf 2</button>
+
+<p id="hasil"></p>
+
+<script>
+    const kursor = document.getElementById("kursor");
+    const hasil = document.getElementById("hasil");
+    const p1 = document.getElementById("p1");
+    const p2 = document.getElementById("p2");
+
+    function cekPosisi(e) {
+        const touch = e.touches[0];
+        const x = touch.clientX;
+        const y = touch.clientY;
+
+        kursor.style.left = x + "px";
+        kursor.style.top = y + "px";
+
+        const r1 = p1.getBoundingClientRect();
+        const r2 = p2.getBoundingClientRect();
+
+        if (x > r1.left && x < r1.right && y > r1.top && y < r1.bottom) {
+            hasil.textContent = "Andi";
+        }
+        else if (x > r2.left && x < r2.right && y > r2.top && y < r2.bottom) {
+            hasil.textContent = "Budi";
+        }
+        else {
+            hasil.textContent = "";
+        }
+    }
+
+    document.addEventListener("touchstart", cekPosisi);
+    document.addEventListener("touchmove", cekPosisi);
+</script>
+
+</body>
+</html>

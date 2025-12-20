@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan1</title>
+</head>
+<body>
+
+    <button onclick="fungsi1(event)">paragraf1</button>
+    <button onclick="fungsi2(event)">paragraf2</button>
+
+    <div id="nama"></div>
+
+    <script>
+        function fungsi1(e) {
+            let elemen = e.currentTarget;
+            elemen.innerText = "paragraf1"; 
+
+            document.getElementById("nama").innerHTML =
+                "<p>ini paragraf 1</p>";
+        }
+
+        function fungsi2(e) {
+            let elemen = e.currentTarget;
+            elemen.innerText = "paragraf2";
+
+            document.getElementById("nama").innerHTML +=
+                "<p>ini paragraf 2</p>";
+        }
+    </script>
+
+</body>
+</html>
