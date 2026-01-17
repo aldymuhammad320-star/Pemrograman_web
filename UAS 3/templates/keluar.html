@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="box">
+<h3>Kendaraan Keluar</h3>
+
+<form method="post">
+    <input name="plat" placeholder="Plat Kendaraan" required>
+    <button>Keluarkan</button>
+</form>
+
+{% if hasil %}
+<hr>
+<p>Plat: {{ hasil.plat }}</p>
+<p>Jenis: {{ hasil.jenis|capitalize }}</p>
+<p>Total Bayar: Rp {{ "{:,}".format(hasil.total).replace(",", ".") }}</p>
+<p>Waktu Keluar: {{ hasil.keluar.strftime('%d-%m-%Y %H:%M') }}</p>
+{% endif %}
+
+<a href="/"><button>Kembali</button></a>
+</div>
+</body>
+</html>

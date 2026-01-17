@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head><link rel="stylesheet" href="/static/style.css"></head>
+<body>
+<div class="box">
+<h3>Kendaraan Masuk</h3>
+<form method="post">
+<input name="plat" placeholder="Plat Kendaraan" required>
+<select name="jenis">
+<option value="motor">Motor</option>
+<option value="mobil">Mobil</option>
+</select>
+<input name="merk" placeholder="Merk Kendaraan" required>
+<button>Masuk Parkir</button>
+</form>
+
+{% if hasil %}
+<hr>
+<p>Plat: {{hasil.plat}}</p>
+<p>Jenis: {{hasil.jenis}}</p>
+<p>Merk: {{hasil.merk}}</p>
+<p>Waktu Masuk: {{hasil.masuk}}</p>
+{% endif %}
+
+<a href="/"><button>Kembali</button></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="box">
+
+<h2>Analisis Riwayat Masuk Parkir</h2>
+
+<!-- HARIAN -->
+<h3>📅 Harian (Hari Ini)</h3>
+{% if harian %}
+<ul>
+{% for d in harian %}
+    <li>
+        {{ d.tanggal.strftime('%d-%m-%Y %H:%M') }} |
+        {{ d.plat }} |
+        {{ d.jenis|capitalize }} |
+        {{ d.merk }} |
+        Rp {{ "{:,}".format(d.harga).replace(",", ".") }}
+    </li>
+{% endfor %}
+</ul>
+<p><strong>Jumlah Motor:</strong> {{ h_motor }}</p>
+<p><strong>Jumlah Mobil:</strong> {{ h_mobil }}</p>
+<p><strong>Total Pendapatan:</strong> Rp {{ "{:,}".format(h_total).replace(",", ".") }}</p>
+{% else %}
+<p>Tidak ada kendaraan masuk hari ini</p>
+{% endif %}
+
+<hr>
+
+<!-- MINGGUAN -->
+<h3>📆 Mingguan</h3>
+<ul>
+{% for d in mingguan %}
+    <li>
+        {{ d.tanggal.strftime('%d-%m-%Y') }} |
+        {{ d.plat }} |
+        {{ d.jenis|capitalize }} |
+        {{ d.merk }} |
+        Rp {{ "{:,}".format(d.harga).replace(",", ".") }}
+    </li>
+{% endfor %}
+</ul>
+<p><strong>Jumlah Motor:</strong> {{ w_motor }}</p>
+<p><strong>Jumlah Mobil:</strong> {{ w_mobil }}</p>
+<p><strong>Total Pendapatan:</strong> Rp {{ "{:,}".format(w_total).replace(",", ".") }}</p>
+
+<hr>
+
+<!-- BULANAN -->
+<h3>🗓️ Bulanan</h3>
+<ul>
+{% for d in bulanan %}
+    <li>
+        {{ d.tanggal.strftime('%d-%m-%Y') }} |
+        {{ d.plat }} |
+        {{ d.jenis|capitalize }} |
+        {{ d.merk }} |
+        Rp {{ "{:,}".format(d.harga).replace(",", ".") }}
+    </li>
+{% endfor %}
+</ul>
+<p><strong>Jumlah Motor:</strong> {{ b_motor }}</p>
+<p><strong>Jumlah Mobil:</strong> {{ b_mobil }}</p>
+<p><strong>Total Pendapatan:</strong> Rp {{ "{:,}".format(b_total).replace(",", ".") }}</p>
+
+<a href="/"><button>Kembali</button></a>
+</div>
+</body>
+</html>
